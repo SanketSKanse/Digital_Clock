@@ -1,15 +1,3 @@
-function applyStoredTheme() {
-  const storedTheme = localStorage.getItem("selectedTheme");
-  if (storedTheme) {
-    document.body.classList.remove("dark-theme", "neon-theme");
-    if (storedTheme !== "default") {
-      document.body.classList.add(storedTheme);
-    }
-  }
-}
-
-applyStoredTheme();
-
 let stopwatchInterval;
 let elapsedTime = 0;
 let isRunning = false;
@@ -27,7 +15,7 @@ function updateStopwatch() {
     String(seconds).padStart(2, "0");
 
   document.getElementById("stopwatch-display").textContent = formattedTime;
-  document.title = `⏱️ ${formattedTime} - Stopwatch`;
+  document.title = `⏱️ ${formattedTime} - Stopwatch`; 
 }
 
 function startStopwatch() {
@@ -51,5 +39,22 @@ function resetStopwatch() {
   isRunning = false;
   updateStopwatch();
 }
+
+function applyStoredTheme() {
+  const storedTheme = localStorage.getItem("selectedTheme");
+  if (storedTheme) {
+    document.body.classList.remove("dark-theme", "neon-theme");
+  }
+  if (storedTheme !== "default") {
+    document.body.classList.add(storedTheme);
+  }
+}
+
+if (performance.navigation.type === 1) {
+  window.location.href = "index.html";
+}
+
+
+applyStoredTheme();
 
 updateStopwatch();

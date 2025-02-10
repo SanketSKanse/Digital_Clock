@@ -1,30 +1,37 @@
 function updateClock() {
-  const now = new Date();
-  const timezone = document.getElementById("timezone").value;
+  const timeZoneSelect = document.getElementById("timezone-select");
+  
+  let timeZone = timeZoneSelect.value || "Asia/Kolkata";
 
-  let options = {
-    timeZone: timezone === "local" ? undefined : timezone,
+  const now = new Date();
+  const timeString = now.toLocaleTimeString("en-US", {
+    timeZone: timeZone,
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
     hour12: true,
-  };
+  });
 
-  let formattedTime = new Intl.DateTimeFormat("en-US", options).format(now);
-  document.getElementById("hours").textContent = formattedTime;
-
-  document.title = `🕒 ${formattedTime} - Digital Clock`;
+  document.getElementById("hours").textContent = timeString;
+  document.title = `🕒 ${timeString} - Digital Clock`;
 
   const dateOptions = {
-    timeZone: timezone === "local" ? undefined : timezone,
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: timeZone,
   };
-
-  document.querySelector(".date").textContent = new Intl.DateTimeFormat("en-US", dateOptions).format(now);
+  document.querySelector(".date").textContent = now.toLocaleDateString(
+    "en-US",
+    dateOptions
+  );
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("timezone-select").value = "Asia/Kolkata";
+  updateClock();
+});
 
 function changeTheme(theme) {
   document.body.classList.remove("dark-theme", "neon-theme");
@@ -35,8 +42,10 @@ function changeTheme(theme) {
 }
 
 function applyStoredTheme() {
-  const storedTheme = localStorage.getItem("selectedTheme") || "default";
-  changeTheme(storedTheme);
+  const storedTheme = localStorage.getItem("selectedTheme");
+  if (storedTheme) {
+    changeTheme(storedTheme);
+  }
 }
 
 applyStoredTheme();
