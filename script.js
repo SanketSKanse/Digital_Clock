@@ -31,7 +31,14 @@ function changeTheme(theme) {
   if (theme !== "default") {
     document.body.classList.add(theme);
   }
+  localStorage.setItem("selectedTheme", theme);
 }
 
+function applyStoredTheme() {
+  const storedTheme = localStorage.getItem("selectedTheme") || "default";
+  changeTheme(storedTheme);
+}
+
+applyStoredTheme();
 setInterval(updateClock, 1000);
 updateClock();
