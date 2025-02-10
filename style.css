@@ -1,0 +1,135 @@
+/* Light Theme  */
+:root {
+  --primary-bg: #ffffff;
+  --secondary-bg: #fbfbfb;
+  --primary-text: #000000;
+  --button-bg: #b0b1b6;
+  --button-hover: #e1e2e3;
+  --border: #000000;
+}
+
+/* Dark Theme  */
+body.dark-theme {
+  --primary-bg: #020817;
+  --secondary-bg: #07090e;
+  --primary-text: #ffffff;
+  --button-bg: #515153;
+  --button-hover: #202024;
+  --border: #ffffff;
+}
+
+/* Neon Theme  */
+body.neon-theme {
+  --primary-bg: #09090b;
+  --secondary-bg: #18181c;
+  --primary-text: #00ffa1;
+  --button-bg: #065337;
+  --button-hover: #132922;
+  --border: #ffea61;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-bg);
+}
+
+.panel {
+  /* background-color: beige; */
+  background-color: var(--secondary-bg);
+  box-shadow: 0 0 5px var(--border);
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.panel #hours {
+  color: var(--primary-text);
+  font-size: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel .date {
+  color: var(--primary-text);
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel .theme {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+}
+
+button {
+  color: var(--primary-text);
+  background-color: var(--button-bg);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+.timezone-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.timezone-selector label {
+  color: var(--primary-text);
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.timezone-selector select {
+  background-color: var(--button-bg);
+  color: var(--primary-text);
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  font-size: 16px;
+}
+
+.timezone-selector select:hover {
+  background-color: var(--button-hover);
+}
+
+.panel #stopwatch-display {
+  color: var(--primary-text);
+  font-size: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.panel .stopwatch-controls {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+}
