@@ -54,8 +54,8 @@ if (performance.navigation.type === 1) {
   window.location.href = "index.html";
 }
 
-// ✅ Apply stored theme on page load
+
 applyStoredTheme();
 
-// Initialize display
+
 updateStopwatch();

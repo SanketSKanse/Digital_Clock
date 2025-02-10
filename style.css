@@ -43,7 +43,7 @@ body.neon-theme {
 }
 
 .panel {
-  /* background-color: beige; */
+
   background-color: var(--secondary-bg);
   box-shadow: 0 0 5px var(--border);
   padding: 40px;
