@@ -1,17 +1,19 @@
 function updateClock() {
   const now = new Date();
   const timezone = document.getElementById("timezone").value;
-  
+
   let options = {
     timeZone: timezone === "local" ? undefined : timezone,
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
-    hour12: true
+    hour12: true,
   };
 
   let formattedTime = new Intl.DateTimeFormat("en-US", options).format(now);
   document.getElementById("hours").textContent = formattedTime;
+
+  document.title = `🕒 ${formattedTime} - Digital Clock`;
 
   const dateOptions = {
     timeZone: timezone === "local" ? undefined : timezone,

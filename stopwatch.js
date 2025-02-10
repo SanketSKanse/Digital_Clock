@@ -15,7 +15,7 @@ function updateStopwatch() {
     String(seconds).padStart(2, "0");
 
   document.getElementById("stopwatch-display").textContent = formattedTime;
-  document.title = `⏱️ ${formattedTime} - Stopwatch`; // Updates tab title
+  document.title = `⏱️ ${formattedTime} - Stopwatch`; 
 }
 
 function startStopwatch() {
